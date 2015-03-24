@@ -52,7 +52,7 @@
       "required" : false
     } ,
     "selected" : {
-      "type" : "string" ,
+      "type" : "boolean" ,
       "required" : false
     } ,
     "accessRole" : {
@@ -71,7 +71,7 @@
               "required" : false
             } ,
             "minutes" : {
-              "type" : "string" ,
+              "type" : "number" ,
               "required" : false
             }
           }

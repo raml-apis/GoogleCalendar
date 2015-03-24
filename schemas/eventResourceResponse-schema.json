@@ -64,7 +64,7 @@
           "required" : false
         } ,
         "self" : {
-          "type" : "string" ,
+          "type" : "boolean" ,
           "required" : false
         }
       }
@@ -86,7 +86,7 @@
           "required" : false
         } ,
         "self" : {
-          "type" : "string" ,
+          "type" : "boolean" ,
           "required" : false
         }
       }
@@ -175,7 +175,7 @@
       "required" : false
     } ,
     "sequence" : {
-      "type" : "string" ,
+      "type" : "integer" ,
       "required" : false
     } ,
     "attendees" : {
@@ -202,7 +202,7 @@
               "required" : false
             } ,
             "self" : {
-              "type" : "string" ,
+              "type" : "boolean" ,
               "required" : false
             } ,
             "resource" : {
@@ -336,7 +336,7 @@
       "required" : false ,
       "properties" : {
         "useDefault" : {
-          "type" : "string" ,
+          "type" : "boolean" ,
           "required" : false
         } ,
         "overrides" : {
@@ -351,7 +351,7 @@
                   "required" : false
                 } ,
                 "minutes" : {
-                  "type" : "string" ,
+                  "type" : "integer" ,
                   "required" : false
                 }
               }

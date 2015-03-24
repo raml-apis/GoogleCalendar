@@ -43,16 +43,12 @@
               "required" : false
             } ,
             "minutes" : {
-              "type" : "string" ,
+              "type" : "number" ,
               "required" : false
             }
           }
         }
       ]
-    } ,
-    "nextPageToken" : {
-      "type" : "string" ,
-      "required" : false
     } ,
     "nextSyncToken" : {
       "type" : "string" ,
@@ -63,7 +59,157 @@
       "required" : false ,
       "items" : [
         {
-          "type" : "string"
+          "type" : "object" ,
+          "properties" : {
+            "kind" : {
+              "type" : "string" ,
+              "required" : false
+            } ,
+            "etag" : {
+              "type" : "string" ,
+              "required" : false
+            } ,
+            "id" : {
+              "type" : "string" ,
+              "required" : false
+            } ,
+            "status" : {
+              "type" : "string" ,
+              "required" : false
+            } ,
+            "htmlLink" : {
+              "type" : "string" ,
+              "required" : false
+            } ,
+            "created" : {
+              "type" : "string" ,
+              "required" : false
+            } ,
+            "updated" : {
+              "type" : "string" ,
+              "required" : false
+            } ,
+            "creator" : {
+              "type" : "object" ,
+              "required" : false ,
+              "properties" : {
+                "email" : {
+                  "type" : "string" ,
+                  "required" : false
+                } ,
+                "displayName" : {
+                  "type" : "string" ,
+                  "required" : false
+                }
+              }
+            } ,
+            "organizer" : {
+              "type" : "object" ,
+              "required" : false ,
+              "properties" : {
+                "email" : {
+                  "type" : "string" ,
+                  "required" : false
+                } ,
+                "displayName" : {
+                  "type" : "string" ,
+                  "required" : false
+                } ,
+                "self" : {
+                  "type" : "boolean" ,
+                  "required" : false
+                }
+              }
+            } ,
+            "start" : {
+              "type" : "object" ,
+              "required" : false ,
+              "properties" : {
+                "dateTime" : {
+                  "type" : "string" ,
+                  "required" : false
+                } ,
+                "timeZone" : {
+                  "type" : "string" ,
+                  "required" : false
+                }
+              }
+            } ,
+            "end" : {
+              "type" : "object" ,
+              "required" : false ,
+              "properties" : {
+                "dateTime" : {
+                  "type" : "string" ,
+                  "required" : false
+                } ,
+                "timeZone" : {
+                  "type" : "string" ,
+                  "required" : false
+                }
+              }
+            } ,
+            "iCalUID" : {
+              "type" : "string" ,
+              "required" : false
+            } ,
+            "sequence" : {
+              "type" : "number" ,
+              "required" : false
+            } ,
+            "attendees" : {
+              "type" : "array" ,
+              "required" : false ,
+              "items" : [
+                {
+                  "type" : "object" ,
+                  "properties" : {
+                    "email" : {
+                      "type" : "string" ,
+                      "required" : false
+                    } ,
+                    "displayName" : {
+                      "type" : "string" ,
+                      "required" : false
+                    } ,
+                    "responseStatus" : {
+                      "type" : "string" ,
+                      "required" : false
+                    }
+                  }
+                }
+              ]
+            } ,
+            "reminders" : {
+              "type" : "object" ,
+              "required" : false ,
+              "properties" : {
+                "useDefault" : {
+                  "type" : "boolean" ,
+                  "required" : false
+                } ,
+                "overrides" : {
+                  "type" : "array" ,
+                  "required" : false ,
+                  "items" : [
+                    {
+                      "type" : "object" ,
+                      "properties" : {
+                        "method" : {
+                          "type" : "string" ,
+                          "required" : false
+                        } ,
+                        "minutes" : {
+                          "type" : "number" ,
+                          "required" : false
+                        }
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
         }
       ]
     }

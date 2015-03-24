@@ -75,7 +75,7 @@
               "required" : false
             } ,
             "selected" : {
-              "type" : "string" ,
+              "type" : "boolean" ,
               "required" : false
             } ,
             "accessRole" : {

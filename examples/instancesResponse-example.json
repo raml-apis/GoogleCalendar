@@ -1,20 +1,62 @@
 {
-  "kind" : "calendar#events" ,
-  "etag" : "etag" ,
-  "summary" : "string" ,
-  "description" : "string" ,
-  "updated" : "datetime" ,
-  "timeZone" : "string" ,
-  "accessRole" : "string" ,
-  "defaultReminders" : [
+ "kind": "calendar#events",
+ "etag": "\"1427205872938000\"",
+ "summary": "testNotebookCalendar",
+ "description": "testNotebookCalendar",
+ "updated": "2015-03-24T14:04:32.938Z",
+ "timeZone": "UTC",
+ "accessRole": "owner",
+ "defaultReminders": [
+  {
+   "method": "popup",
+   "minutes": 30
+  }
+ ],
+ "nextSyncToken": "CJDYz5iUwcQCEJDYz5iUwcQCGAU=",
+ "items": [
+  {
+   "kind": "calendar#event",
+   "etag": "\"2854411743743000\"",
+   "id": "6q6budag2hd07c0fm99hf1r8ro",
+   "status": "confirmed",
+   "htmlLink": "https://www.google.com/calendar/event?eid=NnE2YnVkYWcyaGQwN2MwZm05OWhmMXI4cm8gdTdtaWdmZzFpcGRpODIwZjhkMDgzMnUxdjRAZw",
+   "created": "2015-03-24T14:04:31.000Z",
+   "updated": "2015-03-24T14:04:31.954Z",
+   "creator": {
+    "email": "ramltest3@gmail.com",
+    "displayName": "Raml Test"
+   },
+   "organizer": {
+    "email": "u7migfg1ipdi820f8d0832u1v4@group.calendar.google.com",
+    "displayName": "testNotebookCalendar",
+    "self": true
+   },
+   "start": {
+    "dateTime": "2014-11-21T10:28:20Z",
+    "timeZone": "UTC"
+   },
+   "end": {
+    "dateTime": "2014-11-21T11:29:20Z",
+    "timeZone": "UTC"
+   },
+   "iCalUID": "6q6budag2hd07c0fm99hf1r8ro@google.com",
+   "sequence": 0,
+   "attendees": [
     {
-      "method" : "string" ,
-      "minutes" : "integer"
+     "email": "ramltest3@gmail.com",
+     "displayName": "Raml Test",
+     "responseStatus": "needsAction"
     }
-  ] ,
-  "nextPageToken" : "string" ,
-  "nextSyncToken" : "string" ,
-  "items" : [
-    "events Resource"
-  ]
+   ],
+   "reminders": {
+    "useDefault": false,
+    "overrides": [
+     {
+      "method": "popup",
+      "minutes": 0
+     }
+    ]
+   }
+  }
+ ]
 }
