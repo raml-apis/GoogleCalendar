@@ -21,7 +21,7 @@ CLIENT_SECRET = prompt("Please, enter Client Secret of your Google application."
 
 ```javascript
 // Read about the Google Calendar RAML API at https://anypoint.mulesoft.com/apiplatform/popular/admin/#/dashboard/apis/8157/versions/8356/contracts
-API.createClient('client', '/apiplatform/repository/public/organizations/30/apis/8157/versions/8356/definition');
+API.createClient('client', '#REF_TAG_DEFENITION');
 ```
 
 ```javascript
