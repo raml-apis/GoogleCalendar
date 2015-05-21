@@ -48,7 +48,7 @@
       "required" : false
     } ,
     "hidden" : {
-      "type" : "string" ,
+      "type" : "boolean" ,
       "required" : false
     } ,
     "selected" : {
