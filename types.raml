@@ -1,0 +1,1092 @@
+#%RAML 1.0 Library
+types:
+  AclResourceResponse:
+    type: object
+    properties:
+      kind?: string
+      etag?: string
+      id?: string
+      scope?:
+        type : object
+        properties :
+          type?: string
+          value?: string
+      role?: string
+    example:
+      kind : calendar#aclRule
+      etag : etag
+      id : string
+      scope :
+        type : string
+        value : string
+      role : string
+  AclListResponse:
+    type: object
+    properties:
+      kind?: string
+      etag?: string
+      nextPageToken?: string
+      nextSyncToken?: string
+      items?: AclResourceResponse[]
+    example:
+      kind : calendar#acl
+      etag : etag
+      nextPageToken : string
+      nextSyncToken : string
+      items :
+        - kind : calendar#aclRule
+          etag : etag
+          id : string
+          scope :
+            type : string
+            value : string
+          role : string
+  CreateAccessRuleRequest:
+    type: object
+    properties:
+      kind?: string
+      etag?: string
+      id?: string
+      scope?:
+        type : object
+        properties :
+          type?: string
+          value?: string
+      role?: string
+    example:
+      kind : calendar#aclRule
+      etag : etag
+      id : string
+      scope :
+        type : string
+        value : string
+      role : string
+  WatchRequest:
+    type: object
+    properties:
+      id?: string
+      token?: string
+      type?: string
+      address?: string
+      params?:
+        type : object
+        properties :
+          ttl?: string
+    example:
+      id : string
+      token : string
+      type : string
+      address : string
+      params :
+        ttl : string
+  WatchResponse:
+    type: object
+    properties:
+      kind?: string
+      id?: string
+      resourceId?: string
+      resourceUri?: string
+      token?: string
+      expiration?: string
+    example:
+      kind : api#channel
+      id : string
+      resourceId : string
+      resourceUri : string
+      token : string
+      expiration : long
+  WatchSettingsRequest:
+    type: object
+    properties:
+      id?: string
+      token?: string
+      type?: string
+      address?: string
+      params?:
+        type : object
+        properties :
+          ttl?: string
+    example:
+      id : string
+      token : string
+      type : string
+      address : string
+      params :
+        ttl : string
+  WatchSettingsResponse:
+    type: object
+    properties:
+      kind?: string
+      id?: string
+      resourceId?: string
+      resourceUri?: string
+      token?: string
+      expiration?: string
+    example:
+      kind: api#channel
+      id: string
+      resourceId: string
+      resourceUri: string
+      token: string
+      expiration: long
+  StopWatchingRequest:
+    type: object
+    properties:
+      id?: string
+      resourceId?: string
+    example:
+      id: string
+      resourceId: string
+  ColorResponse:
+    type: object
+    properties:
+      kind?: string
+      updated?: string
+      calendar?:
+        type : object
+        properties :
+          [a-zA-Z]:
+            type : object
+            required: false
+            properties :
+              background?: string
+              foreground?: string
+      event?:
+        type : object
+        properties :
+          [a-zA-Z]:
+            type : object
+            properties :
+              background?: string
+              foreground?: string
+    example:
+      kind : calendar#colors
+      updated : datetime
+      calendar :
+        key:
+          background : string
+          foreground : string
+      event :
+        key:
+          background : string
+          foreground : string
+  NewCalendarRequest:
+    type: object
+    properties:
+      kind?: string
+      etag?: string
+      summary?: string
+      description?: string
+      location?: string
+      timeZone?: string
+    example:
+      kind : calendar#calendar
+      etag : etag
+      summary : string
+      description : string
+      location : string
+      timeZone : string
+  CalendarResponse:
+    type: object
+    properties:
+      kind?: string
+      etag?: string
+      id?: string
+      summary?: string
+      description?: string
+      location?: string
+      timeZone?: string
+    example:
+      kind : calendar#calendar
+      etag : etag
+      id : string
+      summary : string
+      description : string
+      location : string
+      timeZone : string
+  Reminder:
+    type : object
+    properties :
+      method?: string
+      minutes?: integer
+    example:
+      method : string
+      minutes : 2
+  Notification:
+    type : object
+    properties :
+      type?: string
+      method?: string
+    example:
+      type : string
+      method : string
+  CalendarItem:
+    type : object
+    properties :
+      kind?: string
+      etag?: string
+      id?: string
+      summary?: string
+      description?: string
+      location?: string
+      timeZone?: string
+      summaryOverride?: string
+      colorId?: string
+      backgroundColor?: string
+      foregroundColor?: string
+      hidden?: string
+      selected?: boolean
+      accessRole?: string
+      defaultReminders?: Reminder[]
+      notificationSettings?:
+        type : object
+        properties :
+          notifications?: Notification[]
+      primary?: string
+      deleted?: string
+    example:
+      kind : calendar#calendarListEntry
+      etag : etag
+      id : string
+      summary : string
+      description : string
+      location : string
+      timeZone : string
+      summaryOverride : string
+      colorId : string
+      backgroundColor : string
+      foregroundColor : string
+      hidden : boolean
+      selected : false
+      accessRole : string
+      defaultReminders :
+        - method : string
+          minutes : 2
+      notificationSettings :
+        notifications :
+          - type : string
+            method : string
+      primary : boolean
+      deleted : boolean
+  CalendarListResponse:
+    type: object
+    properties:
+      kind?: string
+      etag?: string
+      nextPageToken?: string
+      nextSyncToken?: string
+      items?: CalendarItem[]
+    example:
+      kind : calendar#calendarList
+      etag : etag
+      nextPageToken : string
+      nextSyncToken : string
+      items :
+        - kind : calendar#calendarListEntry
+          etag : etag
+          id : string
+          summary : string
+          description : string
+          location : string
+          timeZone : string
+          summaryOverride : string
+          colorId : string
+          backgroundColor : string
+          foregroundColor : string
+          hidden : boolean
+          selected : false
+          accessRole : string
+          defaultReminders :
+            - method : string
+              minutes : 2
+          notificationSettings :
+            notifications :
+              - type : string
+                method : string
+          primary : boolean
+          deleted : boolean
+  CreateUserCalendarRequest:
+    type: object
+    properties:
+      id?: string
+      colorId?: string
+      backgroundColor?: string
+      foregroundColor?: string
+      hidden?: boolean
+      selected?: boolean
+      defaultReminders?: Reminder[]
+      notificationSettings?:
+        type : object
+        properties :
+          notifications?: Notification[]
+    example:
+      id : string
+      colorId : string
+      backgroundColor : string
+      foregroundColor : string
+      hidden : false
+      selected : false
+      defaultReminders :
+        - method : string
+          minutes : 2
+      notificationSettings :
+        notifications :
+          - type : string
+            method : string
+  UserCalendarResponse:
+    type: object
+    properties:
+      kind?: string
+      etag?: string
+      id?: string
+      summary?: string
+      description?: string
+      location?: string
+      timeZone?: string
+      summaryOverride?: string
+      colorId?: string
+      backgroundColor?: string
+      foregroundColor?: string
+      hidden?: boolean
+      selected?: boolean
+      accessRole?: string
+      defaultReminders?: Reminder[]
+      notificationSettings?:
+        type : object
+        properties :
+          notifications : Notification[]
+      primary?: boolean
+      deleted?: boolean
+    example:
+      kind : calendar#calendarListEntry
+      etag : etag
+      id : string
+      summary : string
+      description : string
+      location : string
+      timeZone : string
+      summaryOverride : string
+      colorId : string
+      backgroundColor : string
+      foregroundColor : string
+      hidden : true
+      selected : false
+      accessRole : string
+      defaultReminders :
+        - method : string
+          minutes : 2
+      notificationSettings :
+        notifications :
+          - type : string
+            method : string
+      primary : false
+      deleted : false
+  CalendarListChangesRequst:
+    type: object
+    properties:
+      id?: string
+      token?: string
+      type?: string
+      address?: string
+      params?:
+        type : object
+        properties :
+          ttl?: string
+    example:
+      id : string
+      token : string
+      type : string
+      address : string
+      params :
+        ttl : string
+  CalendarListChangesResponse:
+    type: object
+    properties:
+      kind?: string
+      id?: string
+      resourceId?: string
+      resourceUri?: string
+      token?: string
+      expiration?: number
+    example:
+      kind : api#channel
+      id : string
+      resourceId : string
+      resourceUri : string
+      token : string
+      expiration : 7203685477
+  UpdateCalendarRequest:
+    type: object
+    properties:
+      summary?: string
+      description?: string
+      location?: string
+      timeZone?: string
+    example:
+      summary : string
+      description : string
+      location : string
+      timeZone : string
+  UpdateUserCalendarRequest:
+    type: object
+    properties:
+      id?: string
+      colorId?: string
+      backgroundColor?: string
+      foregroundColor?: string
+      hidden?: boolean
+      selected?: boolean
+      defaultReminders?: Reminder[]
+      notificationSettings?:
+        type : object
+        properties :
+          notifications?: Notification[]
+    example:
+      id : string
+      colorId : string
+      backgroundColor : string
+      foregroundColor : string
+      hidden : false
+      selected : false
+      defaultReminders :
+        - method : string
+          minutes : 4
+      notificationSettings :
+        notifications :
+          - type : string
+            method : string
+  UpdateAccessRuleRequest:
+    type: object
+    properties:
+      kind?: string
+      etag?: string
+      id?: string
+      scope?:
+        type : object
+        properties :
+          type?: string
+          value?: string
+      role?: string
+    example:
+      kind : calendar#aclRule
+      etag : etag
+      id : string
+      scope :
+        type : string
+        value : string
+      role : string
+  RequestItem:
+    type: object
+    properties:
+      id?: string
+  FreeBusyRequest:
+    type: object
+    properties:
+      timeMin?: string
+      timeMax?: string
+      timeZone?: string
+      groupExpansionMax?: string
+      calendarExpansionMax?: string
+      items?: RequestItem[]
+    example:
+      timeMin : datetime
+      timeMax : datetime
+      timeZone : string
+      groupExpansionMax : integer
+      calendarExpansionMax : integer
+      items :
+        - id : string
+  Error:
+    type: object
+    properties:
+      domain?: string
+      reason?: string
+    example:
+      domain : string
+      reason : string
+  Range:
+    type: object
+    properties:
+      start?: string
+      end?: string
+    example:
+      start : datetime
+      end : datetime
+  FreeBusyResponse:
+    type: object
+    properties:
+      kind?: string
+      timeMin?: string
+      timeMax?: string
+      groups?:
+        type : object
+        properties :
+          [a-zA-Z]:
+            type : object
+            required : false
+            properties :
+              errors?: Error[]
+              calendars?: string[]
+      calendars :
+        type : object
+        required : false
+        properties :
+          [a-zA-Z]:
+            type : object
+            required : false
+            properties :
+              errors : Error[]
+              busy : Range[]
+    example:
+      kind : calendar#freeBusy
+      timeMin : datetime
+      timeMax : datetime
+      groups :
+        key :
+          errors :
+            - domain : string
+              reason : string
+          calendars :
+            - string
+      calendars :
+        key:
+          errors :
+            - domain : string
+              reason : string
+          busy :
+            - start : datetime
+              end : datetime
+  SettingResponse:
+    type: object
+    properties:
+      kind?: string
+      etag?: string
+      id?: string
+      value?: string
+    example:
+      kind : calendar#setting
+      etag : etag
+      id : string
+      value : string
+  SettingsResponse:
+    type: object
+    properties:
+      kind?: string
+      etag?: string
+      nextPageToken?: string
+      nextSyncToken?: string
+      items?: SettingResponse[]
+    example:
+      kind : calendar#settings
+      etag : etag
+      nextPageToken : string
+      nextSyncToken : string
+      items :
+        - kind : calendar#setting
+          etag : etag
+          id : string
+          value : string
+        - kind : calendar#setting
+          etag : etag
+          id : string
+          value : string
+  EventWatchRequest:
+    type : object
+    properties :
+      id?: string
+      token?: string
+      type?: string
+      address?: string
+      params?:
+        type : object
+        properties :
+          ttl?: string
+    example:
+      id: string
+      token: string
+      type: string
+      address: string
+      params:
+        ttl: string
+  Attendee:
+    type: object
+    properties:
+      id?: string
+      email?: string
+      displayName?: string
+      organizer?: string
+      self?: string
+      resource?: string
+      optional?: string
+      responseStatus?: string
+      comment?: string
+      additionalGuests?: string
+    example:
+      email: ramltest3@gmail.com
+      displayName: Raml Test
+      responseStatus: needsAction
+  Instance:
+    type: object
+    properties:
+      kind?: string
+      etag?: string
+      id?: string
+      status?: string
+      htmlLink?: string
+      created?: string
+      updated?: string
+      creator :
+        type : object
+        required : false
+        properties :
+          email?: string
+          displayName?: string
+      organizer :
+        type : object
+        required : false
+        properties :
+          email?: string
+          displayName?: string
+          self :
+            type : boolean
+            required : false
+      start :
+        type : object
+        required : false
+        properties :
+          dateTime?: string
+          timeZone?: string
+      end :
+        type : object
+        required : false
+        properties :
+          dateTime?: string
+          timeZone?: string
+      iCalUID?: string
+      sequence?: number
+      attendees?: Attendee[]
+      reminders?:
+        type : object
+        required : false
+        properties :
+          useDefault?: boolean
+          overrides?: Reminder[]
+  InstancesResponse:
+    type: object
+    properties:
+      kind?: string
+      etag?: string
+      summary?: string
+      description?: string
+      updated?: string
+      timeZone?: string
+      accessRole?: string
+      defaultReminders?: Reminder[]
+      nextSyncToken?: string
+      items: Instance[]
+    example:
+      kind: calendar#events
+      etag: \1427205872938000\
+      summary: testNotebookCalendar
+      description: testNotebookCalendar
+      updated: 2015-03-24T14:04:32.938Z
+      timeZone: UTC
+      accessRole: owner
+      defaultReminders:
+       - method: popup
+         minutes: 30
+      nextSyncToken: CJDYz5iUwcQCEJDYz5iUwcQCGAU=
+      items:
+        - kind: calendar#event
+          etag: \2854411743743000\
+          id: 6q6budag2hd07c0fm99hf1r8ro
+          status: confirmed
+          htmlLink: https://www.google.com/calendar/event?eid=NnE2YnVkYWcyaGQwN2MwZm05OWhmMXI4cm8gdTdtaWdmZzFpcGRpODIwZjhkMDgzMnUxdjRAZw
+          created: 2015-03-24T14:04:31.000Z
+          updated: 2015-03-24T14:04:31.954Z
+          creator:
+            email: ramltest3@gmail.com
+            displayName: Raml Test
+          organizer:
+            email: u7migfg1ipdi820f8d0832u1v4@group.calendar.google.com
+            displayName: testNotebookCalendar
+            self: true
+          start:
+            dateTime: 2014-11-21T10:28:20Z
+            timeZone: UTC
+          end:
+            dateTime: 2014-11-21T11:29:20Z
+            timeZone: UTC
+          iCalUID: 6q6budag2hd07c0fm99hf1r8ro@google.com
+          sequence: 0
+          attendees:
+            - email: ramltest3@gmail.com
+              displayName: Raml Test
+              responseStatus: needsAction
+          reminders:
+            useDefault: false
+            overrides:
+              - method: popup
+                minutes: 0
+  CreateEventResourceRequest:
+    type: object
+    properties:
+      status?: string
+      summary?: string
+      description?: string
+      location?: string
+      colorId?: string
+      creator?:
+        type : object
+        properties :
+          id?: string
+          email?: string
+          displayName?: string
+          self?: string
+      organizer?:
+        type : object
+        properties :
+          id?: string
+          email?: string
+          displayName?: string
+          self?: string
+      start?:
+        type : object
+        properties :
+          date?: string
+          dateTime?: string
+          timeZone?: string
+      end?:
+        type : object
+        properties :
+          date?: string
+          dateTime?: string
+          timeZone?: string
+      endTimeUnspecified?: string
+      recurrence?: string
+      recurringEventId?: string
+      originalStartTime?:
+        type : object
+        properties :
+          date?: string
+          dateTime?: string
+          timeZone?: string
+      transparency?: string
+      visibility?: string
+      iCalUID?: string
+      sequence?: string
+      attendees?: Attendee[]
+      attendeesOmitted?: string
+      extendedProperties?:
+        type : object
+        properties :
+          private?:
+            type : object
+            properties :
+              [a-zA-Z]:
+                required: false
+                type: string
+          shared?:
+            type : object
+            properties :
+              [a-zA-Z]:
+                required: false
+                type: string
+      hangoutLink?: string
+      gadget?:
+        type : object
+        properties :
+          type?: string
+          title?: string
+          link?: string
+          iconLink?: string
+          width?: string
+          height?: string
+          display?: string
+          preferences?:
+            type : object
+            properties :
+              [a-zA-Z]:
+                required: false
+                type: string
+      anyoneCanAddSelf?: string
+      guestsCanInviteOthers?: string
+      guestsCanModify?: string
+      guestsCanSeeOtherGuests?: string
+      privateCopy?: boolean
+      locked?: boolean
+      reminders?:
+        type : object
+        properties :
+          useDefault?: string
+          overrides : Reminder[]
+      source :
+        type : object
+        required : false
+        properties :
+          url?: string
+          title?: string
+    example:
+      status : string
+      summary : string
+      description : string
+      location : string
+      colorId : string
+      creator :
+        id : string
+        email : string
+        displayName : string
+        self : boolean
+      organizer :
+        id : string
+        email : string
+        displayName : string
+        self : boolean
+      start :
+        date : date
+        dateTime : datetime
+        timeZone : string
+      end :
+        date : date
+        dateTime : datetime
+        timeZone : string
+      endTimeUnspecified : boolean
+      recurrence :
+        - string
+      recurringEventId : string
+      originalStartTime :
+        date : date
+        dateTime : datetime
+        timeZone : string
+      transparency : string
+      visibility : string
+      iCalUID : string
+      sequence : integer
+      attendees :
+        - id : string
+          email : string
+          displayName : string
+          organizer : boolean
+          self : boolean
+          resource : boolean
+          optional : boolean
+          responseStatus : string
+          comment : string
+          additionalGuests : integer
+      attendeesOmitted : boolean
+      extendedProperties :
+        private :
+          key : string
+        shared :
+          key : string
+      hangoutLink : string
+      gadget :
+        type : string
+        title : string
+        link : string
+        iconLink : string
+        width : integer
+        height : integer
+        display : string
+        preferences :
+          key : string
+      anyoneCanAddSelf : boolean
+      guestsCanInviteOthers : boolean
+      guestsCanModify : boolean
+      guestsCanSeeOtherGuests : boolean
+      privateCopy : false
+      locked : false
+      reminders :
+        useDefault : boolean
+        overrides :
+          - method : string
+            minutes : 2
+      source :
+        url : string
+        title : string
+  EventResourceResponse:
+    type: object
+    properties:
+      kind?: string
+      etag?: string
+      id?: string
+      status?: string
+      htmlLink?: string
+      created?: string
+      updated?: string
+      summary?: string
+      description?: string
+      location?: string
+      colorId?: string
+      creator?:
+        type : object
+        properties :
+          id?: string
+          email?: string
+          displayName?: string
+          self?: boolean
+      organizer?:
+        type : object
+        properties :
+          id?: string
+          email?: string
+          displayName?: string
+          self?: boolean
+      start?:
+        type : object
+        properties :
+          date?: string
+          dateTime?: string
+          timeZone?: string
+      end?:
+        type : object
+        properties :
+          date?: string
+          dateTime?: string
+          timeZone?: string
+      endTimeUnspecified?: string
+      recurrence?: string[]
+      recurringEventId?: string
+      originalStartTime?:
+        type : object
+        properties :
+          date?: string
+          dateTime?: string
+          timeZone?: string
+      transparency?: string
+      visibility?: string
+      iCalUID?: string
+      sequence?: integer
+      attendees?: Attendee[]
+      attendeesOmitted?: string
+      extendedProperties?:
+        type : object
+        properties :
+          private?:
+            type : object
+            properties :
+              [a-zA-Z]:
+                required: false
+                type: string
+          shared?:
+            type : object
+            properties :
+              [a-zA-Z]:
+                required: false
+                type: string
+      hangoutLink?: string
+      gadget?:
+        type : object
+        properties :
+          type?: string
+          title?: string
+          link?: string
+          iconLink?: string
+          width?: string
+          height?: string
+          display?: string
+          preferences?:
+            type : object
+            properties :
+              [a-zA-Z]:
+                required: false
+                type: string
+      anyoneCanAddSelf?: string
+      guestsCanInviteOthers?: string
+      guestsCanModify?: string
+      guestsCanSeeOtherGuests?: string
+      privateCopy?: boolean
+      locked?: boolean
+      reminders?:
+        type : object
+        properties:
+          useDefault?: boolean
+          overrides?: Reminder[]
+      source?:
+        type : object
+        properties :
+          url?: string
+          title?: string
+    example:
+      kind : calendar#event
+      etag : etag
+      id : string
+      status : string
+      htmlLink : string
+      created : datetime
+      updated : datetime
+      summary : string
+      description : string
+      location : string
+      colorId : string
+      creator :
+        id : string
+        email : string
+        displayName : string
+        self : true
+      organizer :
+        id : string
+        email : string
+        displayName : string
+        self : true
+      start :
+        date : date
+        dateTime : datetime
+        timeZone : string
+      end :
+        date : date
+        dateTime : datetime
+        timeZone : string
+      endTimeUnspecified : boolean
+      recurrence :
+        - string
+      recurringEventId : string
+      originalStartTime :
+        date : date
+        dateTime : datetime
+        timeZone : string
+      transparency : string
+      visibility : string
+      iCalUID : string
+      sequence : 1
+      attendees :
+        - id : string
+          email : string
+          displayName : string
+          organizer : boolean
+          self : boolean
+          resource : boolean
+          optional : boolean
+          responseStatus : string
+          comment : string
+          additionalGuests : integer
+      attendeesOmitted : boolean
+      extendedProperties :
+        private :
+          key: string
+        shared :
+      hangoutLink : string
+      gadget :
+        type : string
+        title : string
+        link : string
+        iconLink : string
+        width : integer
+        height : integer
+        display : string
+        preferences :
+          key: string
+      anyoneCanAddSelf : boolean
+      guestsCanInviteOthers : boolean
+      guestsCanModify : boolean
+      guestsCanSeeOtherGuests : boolean
+      privateCopy : false
+      locked : false
+      reminders :
+        useDefault : false
+        overrides :
+          - method : string
+            minutes : 2
+      source :
+        url : string
+        title : string
