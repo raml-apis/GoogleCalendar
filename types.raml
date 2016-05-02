@@ -667,7 +667,6 @@ types:
       attendees?: Attendee[]
       reminders?:
         type : object
-        required : false
         properties :
           useDefault?: boolean
           overrides?: Reminder[]
@@ -1063,7 +1062,6 @@ types:
       extendedProperties :
         private :
           key: string
-        shared :
       hangoutLink : string
       gadget :
         type : string

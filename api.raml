@@ -4,16 +4,16 @@ version: v3
 baseUri: https://www.googleapis.com/calendar/{version}
 mediaType: application/json
 uses:
-  types: !include types.raml
+  types: types.raml
 securitySchemes:
-  - oauth_2_0: !include securitySchemes/oauth_2_0.raml
+  oauth_2_0: !include securitySchemes/oauth_2_0.raml
 resourceTypes:
-  - watch: !include resourceTypes/watch.raml
+  watch: !include resourceTypes/watch.raml
 traits:
-  - sendNotifications: !include traits/sendNotifications.raml
-  - calendarList: !include traits/calendarList.raml
-  - calendarEvent: !include traits/calendarEvent.raml
-  - maxResult: !include traits/maxResult.raml
+  sendNotifications: !include traits/sendNotifications.raml
+  calendarList: !include traits/calendarList.raml
+  calendarEvent: !include traits/calendarEvent.raml
+  maxResult: !include traits/maxResult.raml
 securedBy: [ oauth_2_0 ]
 /calendars:
   post:
@@ -157,7 +157,7 @@ securedBy: [ oauth_2_0 ]
             example: 4992cn3nvm4dn0a5f5gmu184n4@google.com
           maxResults:
             description: Maximum number of events returned on one result page. By default the value is 250 events. The page size can never be larger than 2500 events. Optional.
-            example: 15
+            example: "15"
           orderBy:
             description: The order of the events returned in the result. Optional. The default is an unspecified, stable order.
             example: startTime
@@ -180,18 +180,15 @@ securedBy: [ oauth_2_0 ]
             example: false
           timeMax:
             description: "Upper bound (exclusive) for an event's start time to filter by. Optional. The default is not to filter by start time."
-            type: date
             example: "04:45:03"
           timeMin:
             description: "Lower bound (inclusive) for an event's end time to filter by. Optional. The default is not to filter by end time."
-            type: date
             example: "04:45:03"
           timeZone:
             description: Time zone used in the response. Optional. The default is the time zone of the calendar.
             example: UTC
           updatedMin:
             description: "Lower bound for an event's last modification time (as a RFC 3339 timestamp) to filter by. When specified, entries deleted since this time will always be included regardless of showDeleted. Optional. The default is not to filter by last modification time."
-            type: date
         responses:
           200:
             body:
@@ -276,11 +273,9 @@ securedBy: [ oauth_2_0 ]
                 example: true
               timeMax:
                 description: "Upper bound (exclusive) for an event's start time to filter by. Optional. The default is not to filter by start time."
-                type: date
                 example: "04:45:03"
               timeMin:
                 description: "Lower bound (inclusive) for an event's end time to filter by. Optional. The default is not to filter by end time."
-                type: date
                 example: "04:45:03"
               timeZone:
                 description: Time zone used in the response. Optional. The default is the time zone of the calendar.
