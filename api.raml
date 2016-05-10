@@ -265,7 +265,7 @@ securedBy: [ oauth_2_0 ]
                 description: The original start time of the instance in the result. Optional.
               pageToken:
                 description: Token specifying which result page to return. Optional.
-                example: 00001416408713375000
+                example: "00001416408713375000"
               showDeleted:
                 description: 'Whether to include deleted events (with status equals "cancelled") in the result. Cancelled instances of recurring events will still be included if singleEvents is False. Optional. The default is False.'
                 type: boolean
@@ -355,10 +355,10 @@ securedBy: [ oauth_2_0 ]
       queryParameters:
         pageToken:
           description: Token specifying which result page to return. Optional.
-          example: 00001416406191979000
+          example: "00001416406191979000"
         syncToken:
           description: Token obtained from the nextSyncToken field returned on the last page of results from the previous list request. It makes the result of this list request contain only entries that have changed since then.
-          example: 00001416406191979000
+          example: "00001416406191979000"
       responses:
         200:
           body:
